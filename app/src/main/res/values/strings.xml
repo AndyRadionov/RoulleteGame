@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Project10</string>
+
+    <string name="scores_dialog_title">Результат игры</string>
+    <string name="scores_dialog_text">Вы исчерпали ваш баланс очков!</string>
+    <string name="play_btn_title">Играть</string>
+    <string name="rules_title">Правила</string>
+    <string name="rules_text">1. Игрок выбирает тип ставки - черное/красное.\n2. Игрок выбирает размер ставки.\n3. Игрок нажимает кнопку крутить.\n4. В случае выигрыша ставка возвращается удвоенной.\n5. Игра заканчивается при исчерпании средств игрока.</string>
+    <string name="bet_btn">Ставка</string>
+    <string name="spin_btn">Крутить</string>
+    <string name="scores_title">Очки</string>
+    <string name="bet_type">Тип ставки</string>
+</resources>

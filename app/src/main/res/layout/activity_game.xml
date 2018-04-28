@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity"
+    tools:ignore="MissingPrefix">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_casino" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_wheel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:padding="0dp"
+        app:cardCornerRadius="128dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:src="@drawable/wheel" />
+    </android.support.v7.widget.CardView>
+
+    <ImageView
+        android:layout_width="8dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/position_indicator"
+        app:layout_constraintBottom_toTopOf="@id/cv_wheel"
+        app:layout_constraintLeft_toLeftOf="@id/cv_wheel"
+        app:layout_constraintRight_toRightOf="@id/cv_wheel" />
+
+    <RelativeLayout
+        android:id="@+id/rl_scores_table"
+        android:layout_width="200dp"
+        android:layout_height="120dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/bg_table"
+        android:padding="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_scores_title"
+            fontPath="fonts/Eccentric.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scores_title"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/scores_title_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_scores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="@dimen/scores_title_size"
+            android:textStyle="bold"
+            tools:text="1000" />
+
+        <TextView
+            android:id="@+id/tv_bet_title"
+            fontPath="fonts/Eccentric.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_scores_title"
+            android:layout_marginTop="8dp"
+            android:text="@string/bet_btn"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/scores_title_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_bet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_scores_title"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="@dimen/scores_title_size"
+            android:textStyle="bold"
+            tools:text="100" />
+
+        <TextView
+            android:id="@+id/tv_bet_type_title"
+            fontPath="fonts/Eccentric.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_bet"
+            android:layout_marginTop="12dp"
+            android:text="@string/bet_type"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/scores_title_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_bet_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_bet"
+            android:layout_marginTop="12dp"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="@dimen/scores_title_size"
+            android:textStyle="bold"
+            tools:text="red" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_spin"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        fontPath="fonts/Eccentric.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:onClick="onSpinClick"
+        android:text="@string/spin_btn"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/btn_bet_black"
+        app:layout_constraintRight_toRightOf="@id/btn_bet_red" />
+
+    <Button
+        android:id="@+id/btn_bet"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        fontPath="fonts/Eccentric.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:onClick="updateBet"
+        android:text="@string/bet_btn"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/btn_bet_black"
+        app:layout_constraintLeft_toLeftOf="@id/btn_bet_black"
+        app:layout_constraintRight_toRightOf="@id/btn_bet_red" />
+
+    <ImageButton
+        android:onClick="setBetBlack"
+        android:id="@+id/btn_bet_black"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="20dp"
+        android:background="@null"
+        android:scaleType="centerCrop"
+        android:src="@drawable/black_chip"
+        app:layout_constraintBottom_toTopOf="@id/btn_spin"
+        app:layout_constraintRight_toLeftOf="@id/btn_bet_red" />
+
+    <ImageButton
+        android:onClick="setBetRed"
+        android:id="@+id/btn_bet_red"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:background="@null"
+        android:scaleType="centerCrop"
+        android:src="@drawable/red_chip"
+        app:layout_constraintBottom_toTopOf="@id/btn_spin"
+        app:layout_constraintRight_toRightOf="@id/rl_scores_table" />
+
+    <Button
+        android:id="@+id/btn_rules"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        fontPath="fonts/Eccentric.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="20dp"
+        android:onClick="showRules"
+        android:text="@string/rules_title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
